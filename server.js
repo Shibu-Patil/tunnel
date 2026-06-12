@@ -48,7 +48,7 @@ io.on("connection", (socket) => {
 app.use(express.json({ limit: "100mb" }));
 app.use(express.urlencoded({ extended: true, limit: "100mb" }));
 
-app.all("*", (req, res) => {
+app.all("/*", (req, res) => {
   if (!localClient) {
     return res.status(502).json({ error: "No local client connected" });
   }
